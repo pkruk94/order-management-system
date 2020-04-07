@@ -8,6 +8,12 @@
     <artifactId>Order_Management_System</artifactId>
     <packaging>pom</packaging>
     <version>${revision}</version>
+    <modules>
+        <module>domain</module>
+        <module>infrastructure</module>
+        <module>application</module>
+        <module>interfaces</module>
+    </modules>
 
     <properties>
         <!-- project settings -->
