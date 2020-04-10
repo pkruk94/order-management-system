@@ -1,5 +1,6 @@
 package repository.generic;
 
+import base.generic.CrudRepository;
 import connection.DbConnection;
 
 import javax.persistence.EntityManager;

@@ -24,6 +24,12 @@
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.app</groupId>
+            <artifactId>domain</artifactId>
+            <version>1.0</version>
+            <scope>compile</scope>
+        </dependency>
     </dependencies>
 
 </project>
