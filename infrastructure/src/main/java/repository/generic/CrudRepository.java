@@ -13,4 +13,5 @@ public interface CrudRepository<T, ID> {
     Optional<T> deleteByID(ID id);
     List<T> deleteAllByID(List<ID> ids);
     boolean deleteAll();
+
 }
