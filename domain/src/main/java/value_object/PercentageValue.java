@@ -7,25 +7,25 @@ import java.math.BigDecimal;
 import java.util.Objects;
 
 @Embeddable
-public class Discount {
+public class PercentageValue {
 
     private BigDecimal value;
 
-    public Discount() {
+    public PercentageValue() {
         this.value = BigDecimal.ZERO;
     }
 
-    public Discount(String value) {
+    public PercentageValue(String value) {
         init(value);
     }
 
-    private Discount(BigDecimal value) {
+    private PercentageValue(BigDecimal value) {
         this.value = value;
     }
 
     public BigDecimal getDecimalValue() { return  value; }
 
-    public Discount getReversedValue() { return new Discount(BigDecimal.ONE.subtract(value)); }
+    public PercentageValue getReversedValue() { return new PercentageValue(BigDecimal.ONE.subtract(value)); }
 
     private void init(String value) {
         if (Objects.isNull(value) && !value.matches("\\d\\.\\d+")) {

@@ -38,8 +38,8 @@ public class Money {
         return new Money(this.value.multiply(BigDecimal.valueOf(value)));
     }
 
-    public Money withDiscount(Discount discount) {
-        var reversedDiscount = discount.getReversedValue().getDecimalValue();
+    public Money withDiscount(PercentageValue discountValue) {
+        var reversedDiscount = discountValue.getReversedValue().getDecimalValue();
         return new Money(value.multiply(reversedDiscount));
     }
 
