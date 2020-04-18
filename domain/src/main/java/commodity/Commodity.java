@@ -1,12 +1,14 @@
-package warehouse;
+package commodity;
 
 import base.BaseEntity;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 import product.Product;
+import warehouse.Warehouse;
 
 import javax.persistence.*;
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -21,4 +23,8 @@ public class Commodity extends BaseEntity {
     private Product product;
 
     private Integer quantity;
+
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "warehouse_id")
+    private Warehouse warehouses;
 }

@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 import producer.Producer;
+import warehouse.Warehouse;
 
 import javax.persistence.Entity;
 import javax.persistence.OneToOne;
@@ -24,5 +25,8 @@ public class Address extends BaseEntity {
 
     @OneToOne(mappedBy = "hqAddress")
     private Producer producer;
+
+    @OneToOne(mappedBy = "address")
+    private Warehouse warehouse;
 
 }
