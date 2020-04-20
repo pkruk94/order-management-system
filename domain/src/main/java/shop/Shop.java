@@ -5,6 +5,7 @@ import base.BaseEntity;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
+import offered_commodity.OfferedCommodity;
 import user.User;
 import value_object.Money;
 import value_object.PercentageValue;
@@ -50,5 +51,8 @@ public class Shop extends BaseEntity {
     @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "user_manager")
     private User userManager;
+
+    @OneToMany(mappedBy = "shop")
+    private List<OfferedCommodity> offeredCommodities;
 
 }

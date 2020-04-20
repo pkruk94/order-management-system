@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 import order.Order;
 import product.Product;
+import shop.Shop;
 import value_object.Money;
 
 import javax.persistence.*;
@@ -28,6 +29,8 @@ public class OrderPosition extends BaseEntity {
     @JoinColumn(name = "order_id")
     private Order order;
 
-    public Money totalPrice() { return product.totalPrice().multiply(quantity); }
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "shop_id")
+    private Shop shop;
 
 }

@@ -1,24 +1,25 @@
-package commodity;
+package warehouse_commodity;
 
 import base.BaseEntity;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 import product.Product;
+import value_object.PercentageValue;
 import warehouse.Warehouse;
 
 import javax.persistence.*;
-import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @SuperBuilder
 
 @Entity
-@Table(name = "commodities")
-public class Commodity extends BaseEntity {
+@Table(name = "warehouse_commodities",
+        uniqueConstraints = {@UniqueConstraint(columnNames = {"product", "warehouse"})})
+public class WarehouseCommodity extends BaseEntity {
 
-    @OneToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "product_id", unique = true)
     private Product product;
 
@@ -26,5 +27,6 @@ public class Commodity extends BaseEntity {
 
     @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "warehouse_id")
-    private Warehouse warehouses;
+    private Warehouse warehouse;
+
 }

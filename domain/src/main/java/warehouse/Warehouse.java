@@ -2,7 +2,7 @@ package warehouse;
 
 import address.Address;
 import base.BaseEntity;
-import commodity.Commodity;
+import warehouse_commodity.WarehouseCommodity;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
@@ -19,14 +19,14 @@ import java.util.List;
 @Table(name = "warehouses")
 public class Warehouse extends BaseEntity {
 
-    @OneToMany(mappedBy = "warehouses")
-    private List<Commodity> commodities;
+    @OneToMany(mappedBy = "warehouse")
+    private List<WarehouseCommodity> commodities;
 
     @OneToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "address_id", unique = true)
     private Address address;
 
-    @ManyToMany(mappedBy = "warehouses")
+    @ManyToMany(mappedBy = "warehouse")
     private List<Shop> shops;
 
 }

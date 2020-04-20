@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 import order_position.OrderPosition;
+import value_object.Money;
 
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
@@ -23,4 +24,10 @@ public class Order extends BaseEntity {
     @OneToMany(mappedBy = "order")
     private List<OrderPosition> orderPosition;
 
+//    public Money totalPrice() {
+//        return orderPosition
+//                .stream()
+//                .map(OrderPosition::totalPrice)
+//                .reduce(new Money(), Money::add);
+//    }
 }
