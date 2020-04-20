@@ -43,4 +43,6 @@ public class User  extends BaseEntity {
     @OneToMany(mappedBy = "manager")
     private List<User> subordinates;
 
+
+
 }

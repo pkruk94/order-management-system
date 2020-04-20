@@ -6,6 +6,8 @@ import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 import user.User;
+import value_object.Money;
+import value_object.PercentageValue;
 import warehouse.Warehouse;
 
 import javax.persistence.*;
@@ -20,6 +22,14 @@ import java.util.List;
 public class Shop extends BaseEntity {
 
     private String name;
+
+    @Embedded
+    @AttributeOverride(name = "value", column = @Column(name = "max_purchase_frac"))
+    private PercentageValue maxSinglePurchaseBudgetFraction;
+
+    @Embedded
+    @AttributeOverride(name = "value", column = @Column(name = "budget"))
+    private Money budget;
 
     @OneToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "address_id")
