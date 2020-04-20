@@ -1,15 +1,15 @@
 package order;
 
+import address.Address;
 import base.BaseEntity;
+import discount_policy.DiscountPolicy;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 import order_position.OrderPosition;
 import value_object.Money;
 
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -23,7 +23,21 @@ public class Order extends BaseEntity {
 
     private LocalDateTime orderTime;
 
+    private LocalDateTime paymentDeadline;
 
+    @Enumerated(EnumType.STRING)
+    private PaymentMethod paymentMethod;
+
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "discount_policy")
+    private DiscountPolicy discountPolicy;
+
+    @Enumerated(EnumType.STRING)
+    private OrderStatus orderStatus;
+
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "address")
+    private Address address;
 
     @OneToMany(mappedBy = "order")
     private List<OrderPosition> orderPosition;
