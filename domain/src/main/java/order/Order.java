@@ -1,0 +1,26 @@
+package order;
+
+import base.BaseEntity;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
+import order_position.OrderPosition;
+
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import java.util.List;
+
+@NoArgsConstructor
+@AllArgsConstructor
+@SuperBuilder
+
+@Entity
+@Table(name = "orders")
+public class Order extends BaseEntity {
+
+
+    @OneToMany(mappedBy = "order")
+    private List<OrderPosition> orderPosition;
+
+}

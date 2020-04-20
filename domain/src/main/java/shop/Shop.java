@@ -18,7 +18,7 @@ import java.util.List;
 @SuperBuilder
 
 @Entity
-@Table
+@Table(name = "shops")
 public class Shop extends BaseEntity {
 
     private String name;
