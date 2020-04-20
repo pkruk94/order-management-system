@@ -6,6 +6,7 @@ import commodity.Commodity;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
+import shop.Shop;
 
 import javax.persistence.*;
 import java.util.List;
@@ -24,4 +25,8 @@ public class Warehouse extends BaseEntity {
     @OneToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "address_id", unique = true)
     private Address address;
+
+    @ManyToMany(mappedBy = "warehouses")
+    private List<Shop> shops;
+
 }
