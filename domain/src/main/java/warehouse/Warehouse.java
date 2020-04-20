@@ -26,7 +26,7 @@ public class Warehouse extends BaseEntity {
     @JoinColumn(name = "address_id", unique = true)
     private Address address;
 
-    @ManyToMany(mappedBy = "warehouse")
+    @ManyToMany(mappedBy = "warehouses")
     private List<Shop> shops;
 
 }

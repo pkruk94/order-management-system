@@ -7,7 +7,6 @@ import lombok.experimental.SuperBuilder;
 import product.Product;
 import shop.Shop;
 import value_object.PercentageValue;
-import warehouse.Warehouse;
 
 import javax.persistence.*;
 
@@ -17,7 +16,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "offered_commodities",
-        uniqueConstraints = {@UniqueConstraint(columnNames = {"product", "shop"})})
+        uniqueConstraints = {@UniqueConstraint(columnNames = {"product_id", "shop_id"})})
 public class OfferedCommodity extends BaseEntity {
 
     @ManyToOne(cascade = CascadeType.PERSIST)
