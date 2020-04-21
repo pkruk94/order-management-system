@@ -4,6 +4,7 @@ import base.BaseEntity;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 import offered_commodity.OfferedCommodity;
 import order.Order;
@@ -21,6 +22,7 @@ import java.util.List;
 @AllArgsConstructor
 @SuperBuilder
 @Getter
+@Setter
 
 @Entity
 @Table(name = "products")
