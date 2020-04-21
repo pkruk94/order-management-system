@@ -3,6 +3,7 @@ package service;
 import dto.CreateProduct;
 import lombok.RequiredArgsConstructor;
 import product.ProductRepository;
+import validation.CreateProductValidator;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -13,7 +14,16 @@ public class ProductService {
     private final ProductRepository productRepository;
 
     public Long addNewProduct(CreateProduct createProduct) {
-
+        var createProductValidator = new CreateProductValidator();
+        var errors = createProductValidator.validate(createProduct);
+        if (createProductValidator.hasErrors()) {
+            var errorMessage = errors
+                    .entrySet()
+                    .stream()
+                    .map(e -> e.getKey() + ": " + e.getValue())
+                    .collect(Collectors.joining(", "));
+            throw new
+        }
     }
 }
 
