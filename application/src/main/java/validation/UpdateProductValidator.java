@@ -4,8 +4,12 @@ import dto.UpdateProduct;
 import validation.generic.AbstractValidator;
 
 import java.util.Map;
+import java.util.regex.Pattern;
 
 public class UpdateProductValidator extends AbstractValidator<UpdateProduct> {
+
+    private static final Pattern PRODUCT_NAME_MATCHER = Pattern.compile("\"[A-z0-9]+\"");
+
     @Override
     public Map<String, String> validate(UpdateProduct item) {
 
@@ -42,6 +46,6 @@ public class UpdateProductValidator extends AbstractValidator<UpdateProduct> {
     }
 
     private boolean isNameValid(String name) {
-        return name.matches("[A-z0-9]+");
+        return PRODUCT_NAME_MATCHER.matcher(name).matches();
     }
 }

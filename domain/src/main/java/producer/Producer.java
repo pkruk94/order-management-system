@@ -33,6 +33,4 @@ public class Producer extends BaseEntity {
     @OneToMany(mappedBy = "producer")
     private List<Product> products;
 
-
-
 }

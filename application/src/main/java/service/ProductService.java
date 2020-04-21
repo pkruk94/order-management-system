@@ -26,6 +26,7 @@ public class ProductService {
 //    List<T> deleteAllByID(List<ID> ids);
 //    boolean deleteAll();
 
+    //TODO check if warranty matches producer
     private final ProductRepository productRepository;
     private final ProducerRepository producerRepository;
     private final WarrantyRepository warrantyRepository;

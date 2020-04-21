@@ -9,7 +9,6 @@ import product.Product;
 import value_object.PercentageValue;
 
 import javax.persistence.*;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
