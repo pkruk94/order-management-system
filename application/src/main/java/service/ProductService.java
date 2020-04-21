@@ -1,7 +1,9 @@
 package service;
 
 import dto.CreateProduct;
+import exception.ProductServiceException;
 import lombok.RequiredArgsConstructor;
+import mapper.Mapper;
 import product.ProductRepository;
 import validation.CreateProductValidator;
 
@@ -22,31 +24,22 @@ public class ProductService {
                     .stream()
                     .map(e -> e.getKey() + ": " + e.getValue())
                     .collect(Collectors.joining(", "));
-            throw new
+            throw new ProductServiceException("Product validation error [" + errorMessage + " ]");
         }
+
+        var product = Mapper.fromCreateProductDTOtoProductEntity(createProduct);
+        return productRepository
+                .addOrUpdate(product)
+                .orElseThrow(() -> new ProductServiceException("Could not add new product"))
+                .getId();
+    }
+
+    public Long updateProduct(UpdateProduct updateProduct) {
+        return null;
     }
 }
 
 
-
-    public Long createProduct(CreateProductDto createProductDto) {
-        var createProductValidator = new CreateProductValidator();
-        var errors = createProductValidator.validate(createProductDto);
-        if (createProductValidator.hasErrors()) {
-            var errorMessage = errors
-                    .entrySet()
-                    .stream()
-                    .map(e -> e.getKey() + ": " + e.getValue())
-                    .collect(Collectors.joining(", "));
-            throw new ProductServiceException("Product validation error [ " + errorMessage + " ]");
-        }
-
-        var product = Mapper.fromCreateProductToProduct(createProductDto);
-        return productRepository
-                .addOrUpdate(product)
-                .orElseThrow(() -> new ProductServiceException("cannot insert product"))
-                .getId();
-    }
 
     public List<GetProductDto> getAllProducts() {
         return productRepository
