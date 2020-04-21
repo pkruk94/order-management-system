@@ -22,7 +22,9 @@ import java.util.Set;
 public class Warranty extends BaseEntity {
 
     private Integer durationYears;
+
     private PercentageValue fracPriceReturned;
+
     private Integer completionTimeInDays;
 
     @ElementCollection(targetClass = WarrantyServices.class)
