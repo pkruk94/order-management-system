@@ -2,7 +2,9 @@ package address;
 
 import base.BaseEntity;
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 import producer.Producer;
 import warehouse.Warehouse;
@@ -14,6 +16,8 @@ import javax.persistence.Table;
 @AllArgsConstructor
 @NoArgsConstructor
 @SuperBuilder
+@Getter
+@Setter
 
 @Entity
 @Table(name = "addresses")

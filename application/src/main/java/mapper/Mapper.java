@@ -1,5 +1,8 @@
 package mapper;
 
+import address.Address;
+import dto.address.CreateAddress;
+import dto.address.GetAddress;
 import dto.producer.CreateProducer;
 import dto.producer.GetProducer;
 import dto.product.CreateProduct;
@@ -75,6 +78,23 @@ public interface Mapper {
                 .market(producer.getMarket())
                 .name(producer.getName())
                 .hqAddress(producer.getHqAddress())
+                .build();
+    }
+
+    static GetAddress fromAddressEntityToGetAddress(Address address) {
+        return GetAddress.builder()
+                .addressLine(address.getAddressLine())
+                .city(address.getCity())
+                .id(address.getId())
+                .zipCode(address.getZipCode())
+                .build();
+    }
+
+    static Address fromCreateAddressToAddressEntity(CreateAddress createAddress) {
+        return Address.builder()
+                .addressLine(createAddress.getAddressLine())
+                .city(createAddress.getCity())
+                .zipCode(createAddress.getZipCode())
                 .build();
     }
 }
