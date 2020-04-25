@@ -8,7 +8,6 @@ import lombok.RequiredArgsConstructor;
 import mapper.Mapper;
 import producer.Producer;
 import producer.ProducerRepository;
-import product.Product;
 import product.ProductRepository;
 import validation.CreateProductValidator;
 import validation.UpdateProductValidator;

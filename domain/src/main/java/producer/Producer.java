@@ -3,7 +3,9 @@ package producer;
 import address.Address;
 import base.BaseEntity;
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 import product.Product;
 import warranty.Warranty;
@@ -15,6 +17,8 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 @SuperBuilder
+@Getter
+@Setter
 
 @Entity
 @Table(name = "producers")

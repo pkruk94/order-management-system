@@ -1,10 +1,13 @@
 package mapper;
 
+import dto.producer.CreateProducer;
+import dto.producer.GetProducer;
 import dto.product.CreateProduct;
 import dto.product.GetProduct;
 import dto.warranty.CreateWarranty;
 import dto.warranty.GetWarranty;
 import dto.warranty.UpdateWarranty;
+import producer.Producer;
 import product.Product;
 import warranty.Warranty;
 
@@ -55,6 +58,23 @@ public interface Mapper {
                 .price(product.getPrice())
                 .name(product.getName())
                 .id(product.getId())
+                .build();
+    }
+
+    static Producer fromCreateProducerToProducerEntity(CreateProducer createProducer) {
+        return Producer.builder()
+                .name(createProducer.getName())
+                .market(createProducer.getMarket())
+                .hqAddress(createProducer.getHqAddress())
+                .build();
+    }
+
+    static GetProducer fromProducerEntityToGetProducer(Producer producer) {
+        return GetProducer.builder()
+                .id(producer.getId())
+                .market(producer.getMarket())
+                .name(producer.getName())
+                .hqAddress(producer.getHqAddress())
                 .build();
     }
 }
