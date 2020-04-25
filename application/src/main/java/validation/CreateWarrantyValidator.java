@@ -1,6 +1,6 @@
 package validation;
 
-import dto.CreateWarranty;
+import dto.warranty.CreateWarranty;
 import validation.generic.AbstractValidator;
 
 import java.util.Map;

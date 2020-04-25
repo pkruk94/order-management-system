@@ -1,23 +1,24 @@
 package service;
 
 import base.BaseEntity;
-import dto.CreateWarranty;
-import dto.GetWarranty;
-import dto.UpdateWarranty;
+import dto.warranty.CreateWarranty;
+import dto.warranty.GetWarranty;
+import dto.warranty.UpdateWarranty;
 import exception.ProductServiceException;
 import exception.WarrantyServiceException;
 import lombok.RequiredArgsConstructor;
 import mapper.Mapper;
 import producer.ProducerRepository;
-import validation.CreateProductValidator;
 import validation.CreateWarrantyValidator;
 import validation.UpdateWarrantyValidator;
+import value_object.PercentageValue;
 import warranty.Warranty;
 import warranty.WarrantyRepository;
+import warranty.WarrantyServices;
 
 import java.util.List;
-import java.util.Map;
 import java.util.Objects;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
@@ -88,6 +89,11 @@ public class WarrantyCrudService {
     }
 
     public Long updateWarranty(UpdateWarranty updateWarranty) {
+
+        var warranty = warrantyRepository
+                .findByID(updateWarranty.getId())
+                .orElseThrow(() -> new WarrantyServiceException("Warranty could not be found"));
+
         var updateWarrantyValidator = new UpdateWarrantyValidator();
         var errors = updateWarrantyValidator.validate(updateWarranty);
         if (updateWarrantyValidator.hasErrors()) {
@@ -103,7 +109,10 @@ public class WarrantyCrudService {
                 .findByID(updateWarranty.getProducerId())
                 .orElseThrow(() -> new WarrantyServiceException("Warranty producer not found in database"));
 
-        var warranty = Mapper.fromUpdateWarrantyDTOtoWarrantyEntity(updateWarranty);
+        warranty.setCompletionTimeInDays(updateWarranty.getCompletionTimeInDays());
+        warranty.setDurationYears(updateWarranty.getDurationYears());
+        warranty.setFracPriceReturned(updateWarranty.getFracPriceReturned());
+        warranty.setServicesAvailable(updateWarranty.getServicesAvailable());
         warranty.setProducer(producer);
 
         return warrantyRepository

@@ -1,9 +1,10 @@
 package mapper;
 
-import dto.CreateProduct;
-import dto.CreateWarranty;
-import dto.GetWarranty;
-import dto.UpdateWarranty;
+import dto.product.CreateProduct;
+import dto.product.GetProduct;
+import dto.warranty.CreateWarranty;
+import dto.warranty.GetWarranty;
+import dto.warranty.UpdateWarranty;
 import product.Product;
 import warranty.Warranty;
 
@@ -43,6 +44,17 @@ public interface Mapper {
                 .durationYears(updateWarranty.getDurationYears())
                 .completionTimeInDays(updateWarranty.getCompletionTimeInDays())
                 .id(updateWarranty.getId())
+                .build();
+    }
+
+    static GetProduct fromProductEntityToGetProduct(Product product) {
+        return GetProduct.builder()
+                .warrantyPolicyId(product.getWarrantyPolicy().getId())
+                .productCategory(product.getProductCategory())
+                .producerId(product.getProducer().getId())
+                .price(product.getPrice())
+                .name(product.getName())
+                .id(product.getId())
                 .build();
     }
 }

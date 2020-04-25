@@ -1,6 +1,6 @@
 package validation;
 
-import dto.CreateProduct;
+import dto.product.CreateProduct;
 import validation.generic.AbstractValidator;
 
 import java.util.Map;

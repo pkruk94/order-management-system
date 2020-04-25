@@ -1,6 +1,6 @@
 package validation;
 
-import dto.UpdateProduct;
+import dto.product.UpdateProduct;
 import validation.generic.AbstractValidator;
 
 import java.util.Map;
@@ -15,6 +15,11 @@ public class UpdateProductValidator extends AbstractValidator<UpdateProduct> {
 
         if (item == null) {
             errors.put("object", "dto provided ist null");
+            return errors;
+        }
+
+        if (item.getProductId() == null) {
+            errors.put("id", "id cannot be null");
             return errors;
         }
 

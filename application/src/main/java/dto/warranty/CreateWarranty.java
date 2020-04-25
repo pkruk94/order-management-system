@@ -1,9 +1,10 @@
-package dto;
+package dto.warranty;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
 import value_object.PercentageValue;
 import warranty.WarrantyServices;
 
@@ -13,9 +14,8 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class UpdateWarranty {
+public class CreateWarranty {
 
-    private Long id;
     private Integer durationYears;
     private PercentageValue fracPriceReturned;
     private Integer completionTimeInDays;
@@ -23,6 +23,3 @@ public class UpdateWarranty {
     private Long producerId;
 
 }
-
-
-

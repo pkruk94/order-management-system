@@ -1,4 +1,4 @@
-package dto;
+package dto.product;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -7,13 +7,13 @@ import lombok.NoArgsConstructor;
 import product.ProductCategory;
 import value_object.Money;
 
-@Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Data
 @Builder
-public class UpdateProduct {
+public class GetProduct {
 
-    private Long productId;
+    private Long id;
     private String name;
     private Money price;
     private ProductCategory productCategory;
