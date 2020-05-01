@@ -32,6 +32,10 @@ public class Money {
         return new Money(this.value.add(money.value));
     }
 
+    public Money subtract(Money money) {
+        return new Money(this.value.subtract(money.value));
+    }
+
     public Money multiply(Money money) {
         return new Money(this.value.multiply(money.value));
     }
@@ -42,7 +46,15 @@ public class Money {
 
     public Money withDiscount(PercentageValue discountValue) {
         var reversedDiscount = discountValue.getReversedValue().getDecimalValue();
-        return new Money(value.multiply(reversedDiscount));
+        return new Money(this.value.multiply(reversedDiscount));
+    }
+
+    public Money multiplyByFraction(PercentageValue percentageValue) {
+        return new Money(this.value.multiply(percentageValue.getDecimalValue()));
+    }
+
+    public int compare(Money againstMoney) {
+        return this.value.compareTo(againstMoney.value);
     }
 
     private void init(String value) {

@@ -7,7 +7,6 @@ import javax.persistence.Embeddable;
 import java.math.BigDecimal;
 import java.util.Objects;
 
-@Getter
 @Embeddable
 public class PercentageValue {
 

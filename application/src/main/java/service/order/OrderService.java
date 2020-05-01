@@ -33,6 +33,7 @@ public class OrderService {
 
         validateWarehouseAvailability(createOrder.getOrderPositions());
 
+        return null;
     }
 
     private void assignUserManager(User user) {
@@ -48,11 +49,3 @@ public class OrderService {
         }
     }
 }
-
-
-    private Long userID;
-    private List<CreateOrderPosition> orderPositions;
-    private Long discountPolicyID;
-    private AddressData addressData;
-    private LocalDateTime orderTime;
-    private PaymentMethod paymentMethod;
