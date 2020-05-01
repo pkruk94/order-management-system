@@ -9,8 +9,8 @@ import mapper.Mapper;
 import producer.Producer;
 import producer.ProducerRepository;
 import product.ProductRepository;
-import validation.CreateProductValidator;
-import validation.UpdateProductValidator;
+import validation.product.CreateProductValidator;
+import validation.product.UpdateProductValidator;
 import warranty.Warranty;
 import warranty.WarrantyRepository;
 

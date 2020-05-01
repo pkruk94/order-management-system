@@ -3,7 +3,9 @@ package shop;
 import address.Address;
 import base.BaseEntity;
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 import offered_commodity.OfferedCommodity;
 import user.User;
@@ -17,6 +19,8 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @SuperBuilder
+@Getter
+@Setter
 
 @Entity
 @Table(name = "shops")
@@ -43,10 +47,6 @@ public class Shop extends BaseEntity {
             inverseJoinColumns = @JoinColumn(name = "warehouse_id")
     )
     private List<Warehouse> warehouses;
-
-    @ManyToOne(cascade = CascadeType.PERSIST)
-    @JoinColumn(name = "admin_shop_id")
-    private User adminShop;
 
     @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "user_manager")

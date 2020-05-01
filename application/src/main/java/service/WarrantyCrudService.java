@@ -9,16 +9,13 @@ import exception.WarrantyServiceException;
 import lombok.RequiredArgsConstructor;
 import mapper.Mapper;
 import producer.ProducerRepository;
-import validation.CreateWarrantyValidator;
-import validation.UpdateWarrantyValidator;
-import value_object.PercentageValue;
+import validation.warranty.CreateWarrantyValidator;
+import validation.warranty.UpdateWarrantyValidator;
 import warranty.Warranty;
 import warranty.WarrantyRepository;
-import warranty.WarrantyServices;
 
 import java.util.List;
 import java.util.Objects;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 @RequiredArgsConstructor

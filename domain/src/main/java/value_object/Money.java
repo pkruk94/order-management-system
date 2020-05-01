@@ -1,10 +1,12 @@
 package value_object;
 
 import exception.MoneyException;
+import lombok.Getter;
 
 import javax.persistence.Embeddable;
 import java.math.BigDecimal;
 
+@Getter
 @Embeddable
 public class Money {
 

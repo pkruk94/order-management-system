@@ -3,18 +3,12 @@ package service;
 import dto.producer.CreateProducer;
 import dto.producer.GetProducer;
 import dto.producer.UpdateProducer;
-import dto.product.CreateProduct;
-import dto.product.GetProduct;
-import dto.product.UpdateProduct;
 import exception.ProducerServiceException;
 import exception.ProductServiceException;
 import lombok.RequiredArgsConstructor;
 import mapper.Mapper;
-import producer.Producer;
 import producer.ProducerRepository;
-import validation.CreateProducerValidator;
-import validation.UpdateProductValidator;
-import warranty.Warranty;
+import validation.producer.CreateProducerValidator;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,6 +18,8 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class ProducerCrudService {
 
+    // TODO for DTO select only the fields we will really use
+    // TODO addres for producer
     private final ProducerRepository producerRepository;
 
     public Long addNewProducer(CreateProducer createProducer) {

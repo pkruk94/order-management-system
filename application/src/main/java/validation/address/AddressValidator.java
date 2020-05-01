@@ -1,12 +1,13 @@
-package validation;
+package validation.address;
 
+import dto.address.AddressData;
 import dto.address.CreateAddress;
 import validation.generic.AbstractValidator;
 
 import java.util.Map;
 import java.util.regex.Pattern;
 
-public class AddressValidator extends AbstractValidator<CreateAddress> {
+public class AddressValidator extends AbstractValidator<AddressData> {
 
     private static final Pattern ADDRESS_LINE = Pattern.compile("[A-z0-9. ]+");
     private static final Pattern ZIP_CODE_FORMAT = Pattern.compile("\\d{2}-\\d{3}");
@@ -14,7 +15,7 @@ public class AddressValidator extends AbstractValidator<CreateAddress> {
 
 
     @Override
-    public Map<String, String> validate(CreateAddress item) {
+    public Map<String, String> validate(AddressData item) {
 
         if (item == null) {
             errors.put("object", "dto provided ist null");

@@ -11,8 +11,6 @@ import lombok.NoArgsConstructor;
 @Builder
 public class CreateAddress {
 
-    private String addressLine;
-    private String city;
-    private String zipCode;
+    AddressData addressData;
 
 }

@@ -1,20 +1,25 @@
-package validation;
+package validation.product;
 
-import dto.product.CreateProduct;
+import dto.product.UpdateProduct;
 import validation.generic.AbstractValidator;
 
 import java.util.Map;
 import java.util.regex.Pattern;
 
-public class CreateProductValidator extends AbstractValidator<CreateProduct> {
+public class UpdateProductValidator extends AbstractValidator<UpdateProduct> {
 
     private static final Pattern PRODUCT_NAME_MATCHER = Pattern.compile("\"[A-z0-9]+\"");
 
     @Override
-    public Map<String, String> validate(CreateProduct item) {
+    public Map<String, String> validate(UpdateProduct item) {
 
         if (item == null) {
             errors.put("object", "dto provided ist null");
+            return errors;
+        }
+
+        if (item.getProductId() == null) {
+            errors.put("id", "id cannot be null");
             return errors;
         }
 

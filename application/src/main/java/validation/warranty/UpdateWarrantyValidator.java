@@ -1,4 +1,4 @@
-package validation;
+package validation.warranty;
 
 import dto.warranty.UpdateWarranty;
 import validation.generic.AbstractValidator;

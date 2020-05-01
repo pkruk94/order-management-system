@@ -4,16 +4,11 @@ import address.AddressRepository;
 import dto.address.CreateAddress;
 import dto.address.GetAddress;
 import dto.address.UpdateAddress;
-import dto.product.CreateProduct;
-import dto.product.UpdateProduct;
 import exception.AddressServiceException;
 import exception.ProductServiceException;
 import lombok.RequiredArgsConstructor;
 import mapper.Mapper;
-import producer.Producer;
-import validation.AddressValidator;
-import validation.UpdateProductValidator;
-import warranty.Warranty;
+import validation.address.AddressValidator;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +22,7 @@ public class AddressCrudService {
 
     public Long addNewAddress(CreateAddress createAddress) {
         var addressValidator = new AddressValidator();
-        var errors = addressValidator.validate(createAddress);
+        var errors = addressValidator.validate(createAddress.getAddressData());
         if (addressValidator.hasErrors()) {
             var errorMessage = errors
                     .entrySet()
@@ -64,11 +59,7 @@ public class AddressCrudService {
                 .orElseThrow(() -> new AddressServiceException("Address not found in database"));
 
         var addressValidator = new AddressValidator();
-        var errors = addressValidator.validate(CreateAddress.builder()
-                .addressLine(updateAddress.getAddressLine())
-                .city(updateAddress.getCity())
-                .zipCode(updateAddress.getZipCode())
-                .build());
+        var errors = addressValidator.validate(updateAddress.getAddressData());
 
         if (addressValidator.hasErrors()) {
             var errorMessage = errors
@@ -79,9 +70,9 @@ public class AddressCrudService {
             throw new ProductServiceException("Address update validation error [" + errorMessage + " ]");
         }
 
-        address.setAddressLine(updateAddress.getAddressLine());
-        address.setCity(updateAddress.getCity());
-        address.setZipCode(updateAddress.getZipCode());
+        address.setAddressLine(updateAddress.getAddressData().getAddressLine());
+        address.setCity(updateAddress.getAddressData().getCity());
+        address.setZipCode(updateAddress.getAddressData().getZipCode());
 
         return addressRepository
                 .addOrUpdate(address)

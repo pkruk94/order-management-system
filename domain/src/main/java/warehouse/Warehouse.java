@@ -2,6 +2,8 @@ package warehouse;
 
 import address.Address;
 import base.BaseEntity;
+import lombok.Getter;
+import lombok.Setter;
 import warehouse_commodity.WarehouseCommodity;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
@@ -14,6 +16,8 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @SuperBuilder
+@Getter
+@Setter
 
 @Entity
 @Table(name = "warehouses")

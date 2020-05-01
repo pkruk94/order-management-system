@@ -30,9 +30,6 @@ public class User  extends BaseEntity {
     @Column(name="role")
     private List<UserRole> userRoles;
 
-    @OneToMany(mappedBy = "adminShop")
-    private List<Shop> shopsForAdmin;
-
     @OneToMany(mappedBy = "userManager")
     private List<Shop> shopsForManager;
 

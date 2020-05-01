@@ -1,17 +1,18 @@
-package dto.address;
+package dto.warehouse;
 
+import dto.address.UpdateAddress;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Data
 @Builder
-public class UpdateAddress {
+public class UpdateWarehouse {
 
     private Long id;
-    private AddressData addressData;
+    private UpdateAddress updateAddress;
 
 }

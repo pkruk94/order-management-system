@@ -9,9 +9,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class UpdateAddress {
+public class AddressData {
 
-    private Long id;
-    private AddressData addressData;
+        private String addressLine;
+        private String city;
+        private String zipCode;
 
 }

@@ -1,6 +1,7 @@
 package dto.producer;
 
 import address.Address;
+import dto.address.CreateAddress;
 import lombok.*;
 import producer.Market;
 
@@ -12,6 +13,6 @@ public class CreateProducer {
 
     private String name;
     private Market market;
-    private Address hqAddress;
+    private CreateAddress hqAddress;
 
 }
