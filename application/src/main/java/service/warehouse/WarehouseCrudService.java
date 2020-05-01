@@ -1,6 +1,5 @@
-package service;
+package service.warehouse;
 
-import dto.address.CreateAddress;
 import dto.warehouse.CreateWarehouse;
 import dto.warehouse.GetWarehouse;
 import dto.warehouse.UpdateWarehouse;
@@ -9,6 +8,7 @@ import exception.WarehouseServiceException;
 import exception.WarrantyServiceException;
 import lombok.RequiredArgsConstructor;
 import mapper.Mapper;
+import service.address.AddressCrudService;
 import validation.address.AddressValidator;
 import warehouse.WarehouseRepository;
 

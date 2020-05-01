@@ -1,4 +1,4 @@
-package service;
+package service.producer;
 
 import dto.producer.CreateProducer;
 import dto.producer.GetProducer;

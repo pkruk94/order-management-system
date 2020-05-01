@@ -1,4 +1,4 @@
-package service;
+package service.product;
 
 import dto.product.CreateProduct;
 import dto.product.GetProduct;

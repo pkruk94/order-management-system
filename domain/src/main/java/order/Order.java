@@ -7,6 +7,7 @@ import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 import order_position.OrderPosition;
+import user.User;
 import value_object.Money;
 
 import javax.persistence.*;
@@ -20,6 +21,10 @@ import java.util.List;
 @Entity
 @Table(name = "orders")
 public class Order extends BaseEntity {
+
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "customer_id")
+    private User customer;
 
     private LocalDateTime orderTime;
 

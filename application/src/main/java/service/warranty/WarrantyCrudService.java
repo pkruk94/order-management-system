@@ -1,4 +1,4 @@
-package service;
+package service.warranty;
 
 import base.BaseEntity;
 import dto.warranty.CreateWarranty;

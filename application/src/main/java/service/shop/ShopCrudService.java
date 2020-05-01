@@ -1,4 +1,4 @@
-package service;
+package service.shop;
 
 import dto.shop.CreateShop;
 import dto.shop.GetShop;

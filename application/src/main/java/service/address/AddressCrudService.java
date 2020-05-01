@@ -1,4 +1,4 @@
-package service;
+package service.address;
 
 import address.AddressRepository;
 import dto.address.CreateAddress;
