@@ -20,13 +20,16 @@ import javax.persistence.*;
 @Entity
 @Table(name = "warehouse_commodities",
         uniqueConstraints = {@UniqueConstraint(columnNames = {"product_id", "warehouse_id"})})
+// TODO get embeded id?
 public class WarehouseCommodity extends BaseEntity {
 
     @ManyToOne(cascade = CascadeType.PERSIST)
-    @JoinColumn(name = "product_id", unique = true)
+    @JoinColumn(name = "product_id")
     private Product product;
 
     private Integer quantity;
+
+    private Integer minimalNumberReqInWarehouse;
 
     @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "warehouse_id")

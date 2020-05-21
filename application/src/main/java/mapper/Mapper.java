@@ -76,7 +76,6 @@ public interface Mapper {
         return Producer.builder()
                 .name(createProducer.getName())
                 .market(createProducer.getMarket())
-                .hqAddress(createProducer.getHqAddress())
                 .build();
     }
 
@@ -100,9 +99,9 @@ public interface Mapper {
 
     static Address fromCreateAddressToAddressEntity(CreateAddress createAddress) {
         return Address.builder()
-                .addressLine(createAddress.getAddressLine())
-                .city(createAddress.getCity())
-                .zipCode(createAddress.getZipCode())
+                .addressLine(createAddress.getAddressData().getAddressLine())
+                .city(createAddress.getAddressData().getCity())
+                .zipCode(createAddress.getAddressData().getZipCode())
                 .build();
     }
 
@@ -136,7 +135,7 @@ public interface Mapper {
         return GetShop.builder()
                 .name(shop.getName())
                 .money(shop.getBudget().getValue())
-                .percentageValue(shop.getMaxSinglePurchaseBudgetFraction().getValue())
+                .percentageValue(shop.getMaxSinglePurchaseBudgetFraction().getDecimalValue())
                 .userManagerID(shop.getUserManager().getId())
                 .addressID(shop.getAddress().getId())
                 .build();

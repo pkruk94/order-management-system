@@ -12,7 +12,7 @@ import java.util.Optional;
 
 public class WarehouseCommodityRepositoryImpl extends AbstractCrudRepository<WarehouseCommodity, Long> implements WarehouseCommodityRepository {
     @Override
-    public Optional<WarehouseCommodity> findByProductID(Long productID, Long warehouseID) {
+    public Optional<WarehouseCommodity> findByProductIaAndShopID(Long productID, Long warehouseID) {
         EntityManager em = null;
         EntityTransaction et = null;
         Optional<WarehouseCommodity> warehouseCommodity = Optional.empty();

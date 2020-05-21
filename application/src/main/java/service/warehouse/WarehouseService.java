@@ -1,6 +1,7 @@
 package service.warehouse;
 
 import dto.warehouse.SupplyWarehouse;
+import dto.warehouse.TransferProductsFromTo;
 import exception.WarehouseServiceException;
 import lombok.RequiredArgsConstructor;
 import product.Product;
@@ -9,7 +10,6 @@ import shop.Shop;
 import shop.ShopRepository;
 import value_object.Money;
 import value_object.PercentageValue;
-import warehouse.Warehouse;
 import warehouse.WarehouseRepository;
 import warehouse_commodity.WarehouseCommodity;
 import warehouse_commodity.WarehouseCommodityRepository;
@@ -42,7 +42,7 @@ public class WarehouseService {
 
         shop.setBudget(shop.getBudget().subtract(product.getPrice().multiply(supplyWarehouse.getQuantity())));
 
-        WarehouseCommodity warehouseCommodity = warehouseCommodityRepository.findByProductID(supplyWarehouse.getProductId(), supplyWarehouse.getWarehouseId()).orElseThrow(() -> new WarehouseServiceException("Warehouse commodity could not be found"));
+        WarehouseCommodity warehouseCommodity = warehouseCommodityRepository.findByProductIaAndShopID(supplyWarehouse.getProductId(), supplyWarehouse.getWarehouseId()).orElseThrow(() -> new WarehouseServiceException("Warehouse commodity could not be found"));
 
         warehouseCommodity.setQuantity(supplyWarehouse.getQuantity() + warehouseCommodity.getQuantity());
 
@@ -58,8 +58,9 @@ public class WarehouseService {
         }
     }
 
-    public boolean supplyStoresWithProduct() {
+    public boolean transferFromWarehouseToWarehouse(TransferProductsFromTo transferProductsFromTo) {
 
+        return true;
     }
 
 }
